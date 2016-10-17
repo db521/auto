@@ -11,7 +11,8 @@ class CustomerLoginTopUnauthDataManagement(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
-        self.base_url = "http://c.verify.idaodao.net"
+        self.base_url = "http://c.idaodao.net"
+        # self.base_url = "http://c.verify.idaodao.net"
         # self.base_url = "http://c.test.dongdaodao.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
@@ -21,21 +22,26 @@ class CustomerLoginTopUnauthDataManagement(unittest.TestCase):
         driver = self.driver
         driver.get(self.base_url + "/user/login")
         driver.find_element_by_id("phone").clear()
-        driver.find_element_by_id("phone").send_keys("17561646509")
+        driver.find_element_by_id("phone").send_keys("15210936554")
         driver.find_element_by_id("password").clear()
-        driver.find_element_by_id("password").send_keys("111111")
+        driver.find_element_by_id("password").send_keys("123456")
         driver.find_element_by_id("loginAlertBtn").click()
         #进入资料管理页
         time.sleep(3)
         driver.find_element_by_link_text(u"点击快速进行完善").click()
         driver.find_element_by_id("nav_3_2").click()
+        driver.find_element_by_id("nav_3_2").click()
+
+        driver.find_element_by_id("nickName").clear()
+        driver.find_element_by_id("nickName").send_keys(u"测试账号昵称")
+
         driver.find_element_by_id("realName").clear()
-        driver.find_element_by_id("realName").send_keys(u"阿斯顿")
+        driver.find_element_by_id("realName").send_keys(u"测试账号姓名")
         driver.find_element_by_id("email").clear()
         driver.find_element_by_id("email").send_keys("12341234@1212.com")
         Select(driver.find_element_by_id("provId")).select_by_visible_text(u"北京")
         Select(driver.find_element_by_id("areaId")).select_by_visible_text(u"丰台区")
-        time.sleep(3)
+        time.sleep(1)
         driver.find_element_by_id("userInfoSave").click()
         time.sleep(1)
         #图片上传的有时间再弄
@@ -45,12 +51,12 @@ class CustomerLoginTopUnauthDataManagement(unittest.TestCase):
         # driver.find_element_by_id("upload-file").send_keys("C:\\Users\\admin.DEMO-20150812LX\\Desktop\\QQ20160902103150.jpg")
         # driver.find_element_by_id("imgSave").click()
         driver.find_element_by_name("company").clear()
-        driver.find_element_by_name("company").send_keys(u"的非官方的股份")
+        driver.find_element_by_name("company").send_keys(u"百度公司")
         Select(driver.find_element_by_id("industryId")).select_by_visible_text(u"建筑业")
         driver.find_element_by_name("department").clear()
-        driver.find_element_by_name("department").send_keys(u"是掉发的发地方")
+        driver.find_element_by_name("department").send_keys(u"项目部门")
         driver.find_element_by_name("title").clear()
-        driver.find_element_by_name("title").send_keys(u"东方不败v")
+        driver.find_element_by_name("title").send_keys(u"项目经理")
         driver.find_element_by_name("years").clear()
         driver.find_element_by_name("years").send_keys("34")
         Select(driver.find_element_by_id("registeredCapitalId")).select_by_visible_text(u"2000-5000万")

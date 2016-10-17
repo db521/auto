@@ -11,7 +11,7 @@ class CustomerLogin(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
-        self.base_url = "http://c.verify.idaodao.net"
+        self.base_url = "http://c.idaodao.net"
         # self.base_url = "http://c.test.dongdaodao.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
@@ -20,9 +20,9 @@ class CustomerLogin(unittest.TestCase):
         driver = self.driver
         driver.get(self.base_url + "/user/login")
         driver.find_element_by_id("phone").clear()
-        driver.find_element_by_id("phone").send_keys("17561646509")
+        driver.find_element_by_id("phone").send_keys("15210936554")
         driver.find_element_by_id("password").clear()
-        driver.find_element_by_id("password").send_keys("111111")
+        driver.find_element_by_id("password").send_keys("123456")
         driver.find_element_by_id("loginAlertBtn").click()
     
     def is_element_present(self, how, what):

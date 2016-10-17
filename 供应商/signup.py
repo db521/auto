@@ -2,12 +2,11 @@
 import random
 
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
+
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
-import unittest, time, re
+import unittest, time
 
 class Signup(unittest.TestCase):
     def setUp(self):
@@ -24,7 +23,14 @@ class Signup(unittest.TestCase):
         driver.get(self.base_url + "/user/login")
         driver.find_element_by_link_text(u"注册").click()
         driver.find_element_by_id("phone").clear()
-        driver.find_element_by_id("phone").send_keys("185616"+bytes(random.randint(10000, 99999)))
+        #18515430674为黄鑫，线上供应商注册号
+        # driver.find_element_by_id("phone").send_keys("18515430674")
+        #18211100049为黄鑫，线上供应商注册号
+        # driver.find_element_by_id("phone").send_keys("18211100049")
+        # 18811510575为赵尚，线上供应商注册号
+        driver.find_element_by_id("phone").send_keys("18811510575")
+
+        # driver.find_element_by_id("phone").send_keys("185616"+bytes(random.randint(10000, 99999)))
         driver.find_element_by_id("phoneCode").clear()
         driver.find_element_by_id("phoneCode").send_keys("1234")
         driver.find_element_by_id("password").clear()
@@ -34,24 +40,23 @@ class Signup(unittest.TestCase):
         driver.find_element_by_id("agreement").click()
 
         #加入暂停10秒钟,手动输入验证码
-        time.sleep(20)
-
+        time.sleep(10)
 
         driver.find_element_by_name("name").clear()
-        driver.find_element_by_name("name").send_keys(u"你说啥")
+        driver.find_element_by_name("name").send_keys(u"供应商三")
         driver.find_element_by_id("yearsWorking").clear()
         driver.find_element_by_id("yearsWorking").send_keys("2")
         driver.find_element_by_name("gender").click()
         driver.find_element_by_id("yearsWorking").clear()
         driver.find_element_by_id("yearsWorking").send_keys("23")
         Select(driver.find_element_by_id("provId")).select_by_visible_text(u"北京")
-        Select(driver.find_element_by_id("areaId")).select_by_visible_text(u"顺义区")
+        Select(driver.find_element_by_id("areaId")).select_by_visible_text(u"朝阳区")
         driver.find_element_by_name("address").clear()
-        driver.find_element_by_name("address").send_keys(u"按时大大飒飒大师的萨达")
+        driver.find_element_by_name("address").send_keys(u"三川商务园B座")
         driver.find_element_by_name("idCardNo").clear()
         driver.find_element_by_name("idCardNo").send_keys("371421198801210038")
         driver.find_element_by_name("email").clear()
-        driver.find_element_by_name("email").send_keys("1212@123123.com")
+        driver.find_element_by_name("email").send_keys("1154833834@qq.com")
 
         # 目前没时间，先手动上传
         # 测试上传，找到隐藏的元素
@@ -80,10 +85,10 @@ class Signup(unittest.TestCase):
 
         driver.find_element_by_link_text(u"添加教育经历").click()
         driver.find_element_by_id("school").clear()
-        driver.find_element_by_id("school").send_keys(u"地方水电费地方")
-        Select(driver.find_element_by_id("degree")).select_by_visible_text(u"高中")
+        driver.find_element_by_id("school").send_keys(u"清华大学")
+        Select(driver.find_element_by_id("degree")).select_by_visible_text(u"博士")
         driver.find_element_by_id("major").clear()
-        driver.find_element_by_id("major").send_keys(u"水电费v发送到高")
+        driver.find_element_by_id("major").send_keys(u"平面设计")
         driver.find_element_by_id("eduTime2").click()
         driver.find_element_by_link_text("19").click()
         driver.find_element_by_id("eduTime3").click()
@@ -100,21 +105,21 @@ class Signup(unittest.TestCase):
         driver.find_element_by_id("jobEndTime").click()
         driver.find_element_by_link_text("26").click()
         driver.find_element_by_id("jobCompany").clear()
-        driver.find_element_by_id("jobCompany").send_keys(u"第三个发货单")
+        driver.find_element_by_id("jobCompany").send_keys(u"东道设计")
         driver.find_element_by_id("jobTitle").clear()
-        driver.find_element_by_id("jobTitle").send_keys(u"施工费认为他问题")
+        driver.find_element_by_id("jobTitle").send_keys(u"高级设计师")
         time.sleep(1)
         driver.find_element_by_id("newJob").click()
         time.sleep(1)
         driver.find_element_by_link_text(u"添加项目经历").click()
         driver.find_element_by_id("proName").clear()
-        driver.find_element_by_id("proName").send_keys(u"为儿童要玩儿呀")
+        driver.find_element_by_id("proName").send_keys(u"金杯LOGO")
         driver.find_element_by_id("proStartTime").click()
         driver.find_element_by_link_text("11").click()
         driver.find_element_by_id("proEndTime").click()
         driver.find_element_by_link_text("28").click()
         driver.find_element_by_id("proContent").clear()
-        driver.find_element_by_id("proContent").send_keys(u"二是如果二个二二二热")
+        driver.find_element_by_id("proContent").send_keys(u"基于东道与金杯管理层的深度访谈，项目团队对于汽车行业的深入了解，通过实地厂区、销售店形象调研，遵循东道'发现、创造规范管理'的系统方法:东道针对金杯原标志形象，对标志提出了微调提升的建议，延续金杯多年以来的品牌积淀 对金杯品牌标准字体，进行了重新设计，充满了力量感与现代品质，符合金杯汽车致力于打造具有影响力的国际化品牌气质 .")
         time.sleep(1)
         driver.find_element_by_id("newProSave").click()
         time.sleep(1)
@@ -122,11 +127,11 @@ class Signup(unittest.TestCase):
         driver.find_element_by_id("awardDescription").click()
         driver.find_element_by_id("awardDescription").click()
         driver.find_element_by_id("awardDescription").clear()
-        driver.find_element_by_id("awardDescription").send_keys(u"而又突然用途")
+        driver.find_element_by_id("awardDescription").send_keys(u" 其它荣获奖项的作品包括获得'设计未来世界奖'的Tesla Model S，世界上第一款全尺寸高性能电动轿车;获得'最佳可持续奖'的宝马i3，宝马第一辆只靠电力驱动的汽车，100%使用可再生能源;此外，还有把用户放在设计的前端和核心的最佳数码设计奖得主Uber。")
         driver.find_element_by_id("newAwardSave").click()
         driver.find_element_by_id("certBtnInfo1").click()
         #driver.find_element_by_name("file").click()
-        #加入暂停10秒钟,手动输入验证码
+        #加入暂停10秒钟,手动上传文件
         time.sleep(10)
         driver.find_element_by_id("certBtnInfo").click()
         driver.find_element_by_id("loginIndex").click()

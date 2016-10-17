@@ -11,8 +11,9 @@ class LoginConfirmOrder(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
+        self.base_url = "http://k.idaodao.net"
         #verify环境
-        self.base_url = "http://cp.verify.idaodao.net/"
+        # self.base_url = "http://k.verify.idaodao.net/"
         #测试环境
         #self.base_url = "http://k.test.dongdaodao.com/"
         self.verificationErrors = []
@@ -23,9 +24,9 @@ class LoginConfirmOrder(unittest.TestCase):
         driver = self.driver
         driver.get(self.base_url + "/user/auth/login")
         driver.find_element_by_id("phone").clear()
-        driver.find_element_by_id("phone").send_keys("13810770500")
+        driver.find_element_by_id("phone").send_keys("18911888540")
         driver.find_element_by_id("password").clear()
-        driver.find_element_by_id("password").send_keys("123456")
+        driver.find_element_by_id("password").send_keys("111111")
         driver.find_element_by_id("loginBtn").click()
         #火狐的angularJS兼容性还有点问题，弹窗需要点一下
         self.assertEqual(
