@@ -28,7 +28,9 @@ class Signup(unittest.TestCase):
         #18211100049为黄鑫，线上供应商注册号
         # driver.find_element_by_id("phone").send_keys("18211100049")
         # 18811510575为赵尚，线上供应商注册号
-        driver.find_element_by_id("phone").send_keys("18811510575")
+        # driver.find_element_by_id("phone").send_keys("18811510575")
+        #15818925236为俊雄手机号，线上供应商注册号
+        driver.find_element_by_id("phone").send_keys("15818925236")
 
         # driver.find_element_by_id("phone").send_keys("185616"+bytes(random.randint(10000, 99999)))
         driver.find_element_by_id("phoneCode").clear()
@@ -43,7 +45,7 @@ class Signup(unittest.TestCase):
         time.sleep(10)
 
         driver.find_element_by_name("name").clear()
-        driver.find_element_by_name("name").send_keys(u"供应商三")
+        driver.find_element_by_name("name").send_keys(u"测试供应商一")
         driver.find_element_by_id("yearsWorking").clear()
         driver.find_element_by_id("yearsWorking").send_keys("2")
         driver.find_element_by_name("gender").click()
@@ -133,8 +135,8 @@ class Signup(unittest.TestCase):
         #driver.find_element_by_name("file").click()
         #加入暂停10秒钟,手动上传文件
         time.sleep(10)
-        driver.find_element_by_id("certBtnInfo").click()
-        driver.find_element_by_id("loginIndex").click()
+        # driver.find_element_by_id("certBtnInfo").click()
+        # driver.find_element_by_id("loginIndex").click()
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)

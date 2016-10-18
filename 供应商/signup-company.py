@@ -14,8 +14,8 @@ class SignupCompany(unittest.TestCase):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
         self.base_url = "http://cp.idaodao.net"
-        # self.base_url = "http://cp.verify.idaodao.net"
-        # self.base_url = "http://cp.test.dongdaodao.com"
+        self.base_url = "http://cp.verify.idaodao.net"
+        self.base_url = "http://cp.test.dongdaodao.com"
         self.verificationErrors = []
         self.accept_next_alert = True
     
@@ -24,7 +24,8 @@ class SignupCompany(unittest.TestCase):
         driver.get(self.base_url + "/user/register/view")
         driver.find_element_by_id("companyReg").click()
         driver.find_element_by_id("phone").clear()
-        driver.find_element_by_id("phone").send_keys("185611"+bytes(random.randint(10000, 99999)))
+        driver.find_element_by_id("phone").send_keys("")
+        # driver.find_element_by_id("phone").send_keys("185611"+bytes(random.randint(10000, 99999)))
         driver.find_element_by_id("phoneCode").clear()
         driver.find_element_by_id("phoneCode").send_keys("1234")
         driver.find_element_by_id("password").clear()
@@ -147,8 +148,8 @@ class SignupCompany(unittest.TestCase):
         driver.find_element_by_id("certBtnInfo1").click()
         #暂停10秒，上传资料
         time.sleep(10)
-        driver.find_element_by_id("certBtnInfo").click()
-        driver.find_element_by_id("loginIndex").click()
+        # driver.find_element_by_id("certBtnInfo").click()
+        # driver.find_element_by_id("loginIndex").click()
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)

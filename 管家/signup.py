@@ -13,9 +13,9 @@ class Signup(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
-        self.base_url = "http://k.idaodao.net"
+        # self.base_url = "http://k.idaodao.net"
         # self.base_url = "http://k.verify.idaodao.net"
-        # self.base_url = "http://k.test.dongdaodao.com/"
+        self.base_url = "http://k.test.dongdaodao.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
     
@@ -25,10 +25,10 @@ class Signup(unittest.TestCase):
         driver.find_element_by_link_text(u"注册").click()
         driver.find_element_by_id("phone").clear()
         #18911888540为道道生产环境注册账号
-        driver.find_element_by_id("phone").send_keys("18911888540")
+        # driver.find_element_by_id("phone").send_keys("18911888540")
 
 
-        # driver.find_element_by_id("phone").send_keys("185617"+bytes(random.randint(10000, 99999)))
+        driver.find_element_by_id("phone").send_keys("185617"+bytes(random.randint(10000, 99999)))
         driver.find_element_by_id("smCaptcha").clear()
         driver.find_element_by_id("smCaptcha").send_keys("1234")
         driver.find_element_by_id("password").clear()
@@ -96,10 +96,10 @@ class Signup(unittest.TestCase):
 
 
         # driver.find_element_by_id("proContent").send_keys(u"样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样他他也同样")
-        driver.find_element_by_id("newProSave").click()
-        driver.find_element_by_id("certBtnInfo").click()
-        driver.find_element_by_id("loginIndex").click()
-    
+        # driver.find_element_by_id("newProSave").click()
+        # driver.find_element_by_id("certBtnInfo").click()
+        # driver.find_element_by_id("loginIndex").click()
+        #
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
         except NoSuchElementException as e: return False

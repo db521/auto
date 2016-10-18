@@ -11,7 +11,7 @@ class CustomerLoginTopUnauthDataManagement(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
-        self.base_url = "http://c.idaodao.net"
+        # self.base_url = "http://c.idaodao.net"
         # self.base_url = "http://c.verify.idaodao.net"
         # self.base_url = "http://c.test.dongdaodao.com/"
         self.verificationErrors = []
@@ -22,9 +22,9 @@ class CustomerLoginTopUnauthDataManagement(unittest.TestCase):
         driver = self.driver
         driver.get(self.base_url + "/user/login")
         driver.find_element_by_id("phone").clear()
-        driver.find_element_by_id("phone").send_keys("15210936554")
+        driver.find_element_by_id("phone").send_keys("18500313747")
         driver.find_element_by_id("password").clear()
-        driver.find_element_by_id("password").send_keys("123456")
+        driver.find_element_by_id("password").send_keys("111111")
         driver.find_element_by_id("loginAlertBtn").click()
         #进入资料管理页
         time.sleep(3)
