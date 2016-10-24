@@ -12,7 +12,7 @@ class CustomerLoginTopUnauthDataManagement(unittest.TestCase):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
         # self.base_url = "http://c.idaodao.net"
-        # self.base_url = "http://c.verify.idaodao.net"
+        self.base_url = "http://c.verify.idaodao.net"
         # self.base_url = "http://c.test.dongdaodao.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
@@ -24,7 +24,7 @@ class CustomerLoginTopUnauthDataManagement(unittest.TestCase):
         driver.find_element_by_id("phone").clear()
         driver.find_element_by_id("phone").send_keys("18500313747")
         driver.find_element_by_id("password").clear()
-        driver.find_element_by_id("password").send_keys("111111")
+        driver.find_element_by_id("password").send_keys("123456")
         driver.find_element_by_id("loginAlertBtn").click()
         #进入资料管理页
         time.sleep(3)
@@ -34,9 +34,12 @@ class CustomerLoginTopUnauthDataManagement(unittest.TestCase):
 
         driver.find_element_by_id("nickName").clear()
         driver.find_element_by_id("nickName").send_keys(u"测试账号昵称")
-
         driver.find_element_by_id("realName").clear()
         driver.find_element_by_id("realName").send_keys(u"测试账号姓名")
+
+        driver.find_element_by_xpath("(//input[@name='gender'])[2]").click()
+
+
         driver.find_element_by_id("email").clear()
         driver.find_element_by_id("email").send_keys("12341234@1212.com")
         Select(driver.find_element_by_id("provId")).select_by_visible_text(u"北京")
